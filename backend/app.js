@@ -1,11 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const { injectSpeedInsights } = require("@vercel/speed-insights");
 
 const authRoutes = require("./routes/authRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const cropRoutes = require("./routes/cropRoutes");
 
 const app = express();
+
+// Initialize Vercel Speed Insights
+injectSpeedInsights();
 
 app.use(cors());
 app.use(express.json());
